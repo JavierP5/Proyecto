@@ -8,6 +8,8 @@ public class Alumno {
     private int edad;
     private String NumeroDeEstudiante;
     
+    //putin
+    
     // Constructor
     public Alumno(String nombre, String apellidos, int edad, String NumeroDeEstudiante){
         this.nombre=nombre;
