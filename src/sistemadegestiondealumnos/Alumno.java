@@ -1,42 +1,33 @@
-
+ 
 package sistemadegestiondealumnos;
 
-public class Alumno {
-    // Declaramos los atributos
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Alumno implements Serializable {
+
+    private Long id;
     private String nombre;
-    private String apellidos;
+    private String apellido;
     private int edad;
-    private String NumeroDeEstudiante;
-    
-    //putin
-    
-    // Constructor
-    public Alumno(String nombre, String apellidos, int edad, String NumeroDeEstudiante){
-        this.nombre=nombre;
-        this.apellidos=apellidos;
-        this.edad=edad;
-        this.NumeroDeEstudiante=NumeroDeEstudiante;
-    }
-    
-    public Alumno(){
+    private int numeroEstudiante;
+    private ArrayList<Curso> cursosInscritos;
+
+        private Map<Asignatura, Integer> calificaciones = new HashMap<>();
         
-    }
-
-    // Getters y setters
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
+    public Alumno(String nombre, String apellido, int edad, int numeroEstudiante) {
         this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.numeroEstudiante = numeroEstudiante;
+        this.cursosInscritos = new ArrayList<>();
     }
 
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void inscribirCurso(Curso curso) {
+        cursosInscritos.add(curso);
+        curso.inscribirAlumno(this);
     }
 
     public int getEdad() {
@@ -47,25 +38,43 @@ public class Alumno {
         this.edad = edad;
     }
 
-    public String getNumeroDeEstudiante() {
-        return NumeroDeEstudiante;
+    public int getNumeroEstudiante() {
+        return numeroEstudiante;
     }
 
-    public void setNumeroDeEstudiante(String NumeroDeEstudiante) {
-        this.NumeroDeEstudiante = NumeroDeEstudiante;
+    public void setNumeroEstudiante(int numeroEstudiante) {
+        this.numeroEstudiante = numeroEstudiante;
     }
-    public void inscribirseACurso(Curso curso){
-        
+
+    public ArrayList<Curso> getCursosInscritos() {
+        return cursosInscritos;
     }
-    public void pagarMensualidad(){
-        
+
+    public void setCursosInscritos(ArrayList<Curso> cursosInscritos) {
+        this.cursosInscritos = cursosInscritos;
     }
     
-    
-    
-    
-    
-    
-    
-    
+
+    String getNombre() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    String getApellido() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+   public void registrarCalificacion(Asignatura asignatura, int calificacion) {
+        asignatura.registrarCalificacion(this, calificacion);
+    }
+public Map<Asignatura, Integer> getCalificaciones() {
+        Map<Asignatura, Integer> calificaciones = null;
+        return calificaciones;
+
 }
+    
+    
+    
+}   
+    
+    
+    
+

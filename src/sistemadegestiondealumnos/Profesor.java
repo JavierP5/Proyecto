@@ -1,8 +1,11 @@
 
 package sistemadegestiondealumnos;
 
-public class Profesor {
+import java.io.Serializable;
+
+public class Profesor implements Serializable {
     // Declaramos los atributos
+    private Long id;
     private String nombre;
     private String apellidos;
     private String especialidad;
@@ -17,8 +20,15 @@ public class Profesor {
     public Profesor(){
         
     }
-    
-    // Getters y setters
+       // Getters y setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -42,12 +52,23 @@ public class Profesor {
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
     }
+    
     public void asignarCalificaciones(){
         
     }
     public void calcularSalario(){
         
     }
+    public void asignarAsignatura(Asignatura asignatura){
+        
+    }
+
+    String getApellido() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+
+
     
     
     

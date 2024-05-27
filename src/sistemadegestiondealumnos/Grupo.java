@@ -1,28 +1,27 @@
 
 package sistemadegestiondealumnos;
 
-public class Grupo {
-    // Declaramos los atributos
-    private int numeroGrupo;
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Grupo implements Serializable {
+    private Long id;
     private int capacidad;
-    
-    // Constructor
-    public Grupo(int numeroGrupo, int capacidad){
-        this.numeroGrupo=numeroGrupo;
-        this.capacidad=capacidad;
+    private int numeroGrupo;
+    private ArrayList<Alumno> alumnosInscritos;
+
+    public Grupo(int capacidad, int numeroGrupo) {
+        this.capacidad = capacidad;
+        this.numeroGrupo = numeroGrupo;
+        this.alumnosInscritos = new ArrayList<>();
     }
-    
-    public Grupo(){
-        
-    }
-    
-    // Getters y setters
-    public int getNumeroGrupo() {
-        return numeroGrupo;
+     // Getters y setters
+    public Long getId() {
+        return id;
     }
 
-    public void setNumeroGrupo(int numeroGrupo) {
-        this.numeroGrupo = numeroGrupo;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public int getCapacidad() {
@@ -32,15 +31,27 @@ public class Grupo {
     public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
     }
-    
-    public void agregarAlumno(Alumno alumno){
-        
+
+    public int getNumeroGrupo() {
+        return numeroGrupo;
     }
-    
-    public void quitarAlumno(Alumno alumno){
-        
+
+    public void setNumeroGrupo(int numeroGrupo) {
+        this.numeroGrupo = numeroGrupo;
     }
-    
-    
-    
-}
+
+    public ArrayList<Alumno> getAlumnosInscritos() {
+        return alumnosInscritos;
+    }
+
+    public void setAlumnosInscritos(ArrayList<Alumno> alumnosInscritos) {
+        this.alumnosInscritos = alumnosInscritos;
+    }
+     public void eliminarAlumno(Alumno alumno) {
+        alumnosInscritos.remove(alumno);
+    }
+         public void inscribirAlumno(Alumno alumno) {
+        alumnosInscritos.add(alumno);
+    }
+     
+}   
